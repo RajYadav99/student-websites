@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ms Event Planner</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+background:#fdf7f2;
+}
+
+/* Navigation */
+
+nav{
+background:#8b0000;
+padding:15px 40px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+nav ul{
+display:flex;
+justify-content:center;
+list-style:none;
+gap:30px;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:bold;
+font-size:18px;
+}
+
+nav ul li a:hover{
+color:gold;
+}
+
+/* Hero Section */
+
+.hero{
+height:100vh;
+background:url('hero.jpg');
+background-size:cover;
+background-position:center;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+}
+
+.hero-content{
+background:rgba(0,0,0,0.6);
+padding:40px;
+border-radius:15px;
+}
+
+.hero h1{
+font-size:60px;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:22px;
+margin-bottom:20px;
+}
+
+.btn{
+background:gold;
+padding:12px 25px;
+text-decoration:none;
+color:black;
+font-weight:bold;
+border-radius:30px;
+}
+
+/* Sections */
+
+section{
+padding:70px 10%;
+}
+
+.section-title{
+text-align:center;
+font-size:40px;
+color:#8b0000;
+margin-bottom:40px;
+}
+
+/* About */
+
+.about{
+text-align:center;
+line-height:1.8;
+font-size:18px;
+}
+
+/* Gallery */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.gallery img{
+width:100%;
+height:280px;
+object-fit:cover;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Contact */
+
+.contact{
+text-align:center;
+background:#fff0e6;
+border-radius:15px;
+padding:40px;
+}
+
+.contact p{
+font-size:20px;
+margin:10px 0;
+}
+
+/* Footer */
+
+footer{
+background:#8b0000;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- Navigation -->
+
+<nav>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<!-- Home -->
+
+<section class="hero" id="home">
+
+<div class="hero-content">
+<h1>Ms Event Planner</h1>
+
+<p>Making Your Wedding Dream Come True</p>
+
+<a href="#gallery" class="btn">Explore Decorations</a>
+
+</div>
+
+</section>
+
+<!-- About -->
+
+<section id="about">
+
+<h2 class="section-title">About Us</h2>
+
+<div class="about">
+
+<p>
+Welcome to <b>Ms Event Planner</b>.
+We specialize in beautiful wedding decorations,
+luxury mandap setup, engagement events,
+reception decorations and complete wedding planning.
+</p>
+
+<br>
+
+<p>
+Our mission is to make your special day memorable
+with elegant designs, creative themes and professional service.
+</p>
+
+</div>
+
+</section>
+
+<!-- Gallery -->
+
+<section id="gallery">
+
+<h2 class="section-title">Wedding Decoration Gallery</h2>
+
+<div class="gallery">
+
+<img src="mandap1.jpg" alt="">
+<img src="mandap2.jpg" alt="">
+<img src="mandap3.jpg" alt="">
+<img src="mandap4.jpg" alt="">
+
+</div>
+
+</section>
+
+<!-- Contact -->
+
+<section id="contact">
+
+<h2 class="section-title">Contact Us</h2>
+
+<div class="contact">
+
+<p><b>Business Name:</b> Ms Event Planner</p>
+
+<p><b>Phone:</b> 9173770325</p>
+
+<p><b>Location:</b> Borivali, Mumbai</p>
+
+<p><b>Wedding Decoration | Mandap Decoration | Event Planning</b></p>
+
+</div>
+
+</section>
+
+<footer>
+
+© 2026 Ms Event Planner | All Rights Reserved
+
+</footer>
+
+</body>
+</html>

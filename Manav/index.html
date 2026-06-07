@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animal Image Gallery & Community</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            color: #333;
+            padding-bottom: 50px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #27ae60;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #2c3e50, #27ae60);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Gallery Container */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-size: 2rem;
+            position: relative;
+        }
+
+        /* Responsive Grid Layout */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        /* Card Styles */
+        .animal-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover Effect */
+        .animal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        /* Image Styling */
+        .animal-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Text Info Box */
+        .animal-info {
+            padding: 20px;
+        }
+
+        .animal-info h3 {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 8px;
+        }
+
+        .animal-info p {
+            font-size: 0.95rem;
+            color: #7f8c8d;
+            line-height: 1.5;
+        }
+
+        /* Divider Rule */
+        hr {
+            border: 0;
+            height: 1px;
+            background: #cbd5e1;
+            margin: 60px 0;
+        }
+
+        /* Form Container */
+        .form-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+            font-size: 1.6rem;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 8px;
+        }
+
+        /* Form Grouping */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        /* Input Controls */
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            color: #333;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #27ae60;
+            box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+        }
+
+        .form-group input[type="file"] {
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #219653;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#gallery-section">(Gallery)</a>
+        <a href="#registration-section">(Register)</a>
+    </nav>
+
+    <header>
+        <h1> (Animal World)</h1>
+        <p></p>
+    </header>
+
+    <div class="gallery-container" id="gallery-section">
+        <h2 class="section-title"></h2>
+        <div class="gallery-grid">
+
+            <div class="animal-card">
+                <img src="tiger.png" alt="Tiger">
+                <div class="animal-info">
+                    <h3> (Tiger)</h3>
+                    <p>wild</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <img src="elephant.png" alt="Elephant">
+                <div class="animal-info">
+                    <h3>(Elephant)</h3>
+                    <p>wild</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <img src="lion.png" alt="Lion">
+                <div class="animal-info">
+                    <h3>(Lion)</h3>
+                    <p>wild</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <img src="panda.png" alt="Panda">
+                <div class="animal-info">
+                    <h3> (Panda)</h3>
+                    <p>wild</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <img src="deer.png" alt="Deer">
+                <div class="animal-info">
+                    <h3>(Deer)</h3>
+                    <p>wild</p>
+                </div>
+            </div>
+
+            <div class="animal-card">
+                <img src="fox.png" alt="Fox">
+                <div class="animal-info">
+                    <h3>(Fox)</h3>
+                    <p>wild</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="form-container" id="registration-section">
+        <h2></h2>
+        
+        <form action="#" method="POST" enctype="multipart/form-data">
+            
+            <div class="form-group">
+                <label for="name">(Full Name):</label>
+                <input type="text" id="name" name="name" placeholder="waild" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">(Email Address):</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">(Mobile Number):</label>
+                <input type="tel" id="phone" name="phone" placeholder="98765XXXXX" required>
+            </div>
+
+            <div class="form-group">
+                <label for="category">(Animal Category):</label>
+                <select id="category" name="category" required>
+                    <option value="">--</option>
+                    <option value="wild"> (Wild Animals)</option>
+                    <option value="birds">(Birds)</option>
+                    <option value="domestic"> (Domestic/Pets)</option>
+                    <option value="marine"> (Marine Life)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="photo"> (Upload Photo):</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+            </div>
+
+            <div class="form-group">
+                <label for="message"> (Short Description):</label>
+                <textarea id="message" name="message" rows="4" placeholder="wild"></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn"> (Submit Photo)</button>
+
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2026 Animal Gallery Website | Made with for Nature Lovers</p>
+    </footer>
+
+</body>
+</html>
